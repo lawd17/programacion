@@ -1,3 +1,7 @@
+/**
+ * Funcion que muestra en pantalla un spinner 
+ * @returns html
+ */
 const Loading = () => {
     return (
         <div className="d-flex justify-content-center">
