@@ -1,0 +1,17 @@
+.logo {
+    height: 40px;
+}
+
+.card-img:hover {
+    z-index: 1;
+    -webkit-transform:scale(1.5);
+    transform:scale(1.2);
+}
+
+.card-img {
+    overflow:hidden;
+}
+
+.selected-deck {
+    color: white;
+}
