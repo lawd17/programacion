@@ -1,11 +1,12 @@
-import Card from '../model/Card.js';
+import Card from '../model/Carta.js';//calse carta del modelo
 
 /**
  * Funcion que crear el html de una carta 
- * @param {*} 
+ * @param {*} data datos de la carta que se va a mostrar
+ * @param {*} addToDeck funcion que se encarga de insertar una carta en el deck
  * @returns 
  */
-const PintarCard = ({data, addToDeck}) => {
+const Carta = ({data, addToDeck}) => {
     //llamaos a la funcion statica de la clase que nos convierte al objeto card
     const card = Card.apiToCard({data});
 
@@ -15,7 +16,8 @@ const PintarCard = ({data, addToDeck}) => {
                 <img
                     src={card.imagen}
                     alt={`imagen-${card.name}`}
-                    className="card-img-top"
+                    className="card-img"
+                    onClick={() => addToDeck(card)}
                 />
                 <div className="card-body">
                     <h5>{card.name}</h5>
@@ -26,4 +28,4 @@ const PintarCard = ({data, addToDeck}) => {
     );
 };
 
-export default PintarCard;
+export default Carta;

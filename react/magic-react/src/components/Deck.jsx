@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react'
-import MyDeckCard from './MyDeckCard';
+import DeckCarta from './DeckCarta';
 
 /**
  * Funcion principal que muestra el deck en pantalla
- * @param {*}  
+ * @param {*} deck lista con las cartas del deck del usuario
+ * @param {*} totalCards cantidad de cartas en el deck
+ * @param {*} total coste total del deck
+ * @param {*} removeToDeck funcion que elimina cartas del deck
  * @returns 
  */
-const PintarMyDeck = ({ deck, totalCards, total }) => {
+const Deck = ({ deck, totalCards, total, removeToDeck }) => {
 
   return (
     <Fragment>
@@ -22,7 +25,7 @@ const PintarMyDeck = ({ deck, totalCards, total }) => {
         </thead>
         <tbody>
           {deck.map((item) => (
-            <MyDeckCard key={item.id} card={item} />
+            <DeckCarta key={item.id} card={item} removeToDeck={removeToDeck} />
           ))}
         </tbody>
         <tfoot>
@@ -36,7 +39,7 @@ const PintarMyDeck = ({ deck, totalCards, total }) => {
   )
 }
 
-export default PintarMyDeck;
+export default Deck;
 
 
 

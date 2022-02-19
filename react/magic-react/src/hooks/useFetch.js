@@ -1,39 +1,44 @@
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
-export const useFetch = () => {
-    const [Cards, setCards] = useState([]);
-    const [loading, setLoading] = useState(false);
+/**
+ * Funcion que se encarga de realizar las peticiones a la 
+ * api para obtener la lista de cartas
+ * @param {*} url de la api
+ * @returns 
+ */
+export const useFetch = (url) => {
+    const [Carta, setCarta] = useState([]);// lista de cartas
+    const [loading, setLoading] = useState(false);// estodo del carga 
 
     useEffect(() => {
-        obtenerCards();
-    }, []);
+        obtenerCartas(url);
+    }, [url]);
 
     /**
      * Funcion que realiza la peticion a la api y devuelve 
      * los campos cambiando el estado de Cards
      * @returns cards y estado del loading
      */
-    const obtenerCards = async () => {
+    const obtenerCartas = async (url) => {
         setLoading(true);//activamos el loading
         try {
-            const res = await fetch(
-                `https://api.scryfall.com/cards/search?order=set&q=e%3Augin&unique=prints`
-            );
+            const res = await fetch(url);
 
             //comprobamos error el la respuesta
             if (!res.ok) {
                 console.log(res);
                 return Swal.fire({
                     title: "Error!",
-                    text: `fallo en la url`,
+                    text: `fallo en la url ${url}`,
                     icon: "error",
                 });
             }
 
             //recojemos la respuesta y actualizamos el estado de cards
             const data = await res.json();
-            setCards([...data.data]);
+            console.log([...data.data]);
+            setCarta([...data.data]);
             
         } catch (error) {
             console.log(error);
@@ -47,5 +52,5 @@ export const useFetch = () => {
         }
     };
 
-    return [Cards, loading];
+    return [Carta, loading];
 };
