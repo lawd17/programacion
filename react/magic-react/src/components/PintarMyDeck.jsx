@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
 import MyDeckCard from './MyDeckCard';
 
 /**
@@ -8,39 +6,7 @@ import MyDeckCard from './MyDeckCard';
  * @param {*}  
  * @returns 
  */
-const PintarMyDeck = ({ deck }) => {
-  const [total, setTotal] = useState(0);//cose total de ldeck
-  const [totalCards, setTotalCards] = useState(0);// cantidad de cartas en el deck
-
-  //cada vez que se modifique deck lanzamos las siguientes metodos
-  useEffect(() => {
-    obtenerTotal();
-    obtenerTotalCards();
-  }, [deck]);
-
-  /**
-   * Metodo que obtiene el coste total del deck
-   */
-  const obtenerTotal = () =>{
-    let total = 0;
-    deck.forEach(element => {
-      total +=(element.price * element.quantity);
-    });
-
-    setTotal(total.toFixed(2));//cambiamos el estado de total
-  }
-
-  /**
-   * Metodo que obtiene la cantidad total de cartas del deck
-   */
-  const obtenerTotalCards = () =>{
-    let totalCards = 0;
-    deck.forEach(element => {
-      totalCards +=element.quantity;
-    });
-
-    setTotalCards(totalCards);//cambiamos el estado del totalCards
-  }
+const PintarMyDeck = ({ deck, totalCards, total }) => {
 
   return (
     <Fragment>
