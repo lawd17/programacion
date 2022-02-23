@@ -1,2 +1,2 @@
-# programacion
-Repositorio que contiene proyectos en diferentes lenguajes de progrmación
+# Programación
+Repositorio que contiene proyectos en diferentes herramientas o lenguajes de programación

@@ -1,0 +1,16 @@
+<h1>Lista de Planetas</h1>
+<ul class="list-group">
+    <div *ngFor="let planeta of planetas">
+        <a class="text-decoration-none" routerLink="/planeta/{{planeta.id}}">
+            <button type="button" class="list-group-item list-group-item-action" >
+                <span class="fw-bold">{{planeta.id}}</span> 
+                {{planeta.name}}
+            </button>
+        </a>
+    </div>
+</ul>
+
+<div *ngIf="planetas.length == 0">
+    <div class="spinner-border" role="status">
+    </div>
+</div>

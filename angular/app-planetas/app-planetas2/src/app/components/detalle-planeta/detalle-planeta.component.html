@@ -1,0 +1,16 @@
+<div *ngIf="planetaSeleccionado.id !== 0">
+    <h1>Detalles</h1>
+    <h2>Planeta: {{ planetaSeleccionado.name }}</h2>
+    <div><b>Periodo de rotación: </b>{{planetaSeleccionado.rotation_period | rotacionTerrestre}}</div>
+    <div><b>Periodo de orbita: </b>{{planetaSeleccionado.orbital_period | orbitaTerrestre}}</div>
+    <div appClima [clima]="planetaSeleccionado.climate"><b>Clima: </b>{{planetaSeleccionado.climate}}</div>
+    <div><b>Gravedad: </b>{{planetaSeleccionado.gravity}}</div>
+    <div><b>Terreno: </b>{{planetaSeleccionado.terrain}}</div>
+    <br>
+    <button type="button" class="btn btn-secondary"(click)="goBack()">go back</button>
+</div>
+
+<div *ngIf="planetaSeleccionado.id == 0">
+    <div class="spinner-border" role="status">
+    </div>
+</div>

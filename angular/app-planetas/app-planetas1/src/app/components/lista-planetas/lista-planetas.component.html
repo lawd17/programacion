@@ -1,0 +1,4 @@
+<h1>Lista de Planetas</h1>
+<ul class="list-group">
+    <button [class.active]="planeta === planetaSeleccionado" *ngFor="let planeta of planetas" type="button" class="list-group-item list-group-item-action"(click)="setPlaneta(planeta)">{{planeta.name}}</button>
+  </ul>
